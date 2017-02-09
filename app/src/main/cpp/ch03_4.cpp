@@ -2,9 +2,10 @@
 #include <string>
 #include <android/log.h>
 
+#include "examplelib.h"
+
 #define TAG "ch03_4"
-#define LOGI(...) ((void)__android_log_print(ANDROID_LOG_INFO, TAG, __VA_ARGS__))
-#define LOGW(...) ((void)__android_log_print(ANDROID_LOG_WARN, TAG, __VA_ARGS__))
+
 
 
 extern "C" {
@@ -103,5 +104,26 @@ jstring Java_com_joker_test_androidcppexamples_ch03_Ch03_14_getStaticField(JNIEn
     jstring staticField;
     staticField = (jstring) env->GetStaticObjectField(clazz, staticFieldId);
     return staticField;
+}
+
+JNIEXPORT jstring JNICALL
+Java_com_joker_test_androidcppexamples_ch03_Ch03_14_invokeInstanceMethod(JNIEnv *env,
+                                                                         jobject instance) {
+    jclass clazz;
+    clazz = env->GetObjectClass(instance);
+    jmethodID instanceMethodId;
+    instanceMethodId = env->GetMethodID(clazz,"instanceMethod","()Ljava/lang/String;");
+    return (jstring) env->CallObjectMethod(instance, instanceMethodId);
+}
+
+JNIEXPORT jstring JNICALL
+Java_com_joker_test_androidcppexamples_ch03_Ch03_14_invokeStaticMethod(JNIEnv *env,
+                                                                       jobject instance) {
+    // TODO
+    jclass clazz;
+    clazz = env->GetObjectClass(instance);
+    jmethodID staticMethodId;
+    staticMethodId = env->GetStaticMethodID(clazz,"staticMethod","()Ljava/lang/String;");
+    return (jstring) env->CallStaticObjectMethod(clazz, staticMethodId);
 }
 }

@@ -16,6 +16,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ch03.Ch03_4Activity" android:label="数据类型"/>
+        <activity android:name=".ch03.Ch03_5Activity" android:label="异常处理"/>
     </application>
 
 </manifest>

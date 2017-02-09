@@ -41,6 +41,9 @@ public class Ch03_4Activity extends AppCompatActivity {
 
         Log.e(TAG,"test's instance field: "+test.getInstanceField());
         Log.e(TAG,"Ch03_4's static field: "+test.getStaticField());
+
+        Log.e(TAG,"invoke test's instance method: "+test.invokeInstanceMethod());
+        Log.e(TAG,"invoke test's static method: "+test.invokeStaticMethod());
     }
 
     private String content(int[] arr) {

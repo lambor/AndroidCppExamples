@@ -19,7 +19,7 @@ add_library( # Sets the name of the library.
              # Associated headers in the same location as their source
              # file are automatically included.
              src/main/cpp/native-lib.cpp )
-add_library(ch03_4 SHARED src/main/cpp/ch03_4.cpp)
+add_library(examplelib SHARED src/main/cpp/examplelib.cpp)
 
 # Searches for a specified prebuilt library and stores the path as a
 # variable. Because system libraries are included in the search path by
@@ -44,6 +44,6 @@ target_link_libraries( # Specifies the target library.
                        # Links the target library to the log library
                        # included in the NDK.
                        $\{log-lib} )
-target_link_libraries(ch03_4
+target_link_libraries(examplelib
                       android
                       log)

@@ -22,6 +22,13 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/ch03"
         app:layout_constraintLeft_toLeftOf="@+id/activity_main"
-        android:text="ch03_3"/>
+        android:text="ch03_4"/>
 
+    <Button
+        android:id="@+id/ch03_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/ch03"
+        app:layout_constraintLeft_toLeftOf="@+id/activity_main"
+        android:text="ch03_5"/>
 </android.support.constraint.ConstraintLayout>

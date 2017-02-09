@@ -7,7 +7,7 @@ package com.joker.test.androidcppexamples.ch03;
 public class Ch03_4 {
 
     static {
-        System.loadLibrary("ch03_4");
+        System.loadLibrary("examplelib");
     }
 
     public String instanceField = "Instance Field";
@@ -40,5 +40,20 @@ public class Ch03_4 {
     public native String getInstanceField();
 
     public native String getStaticField();
+
+    /**
+     * 调用方法
+     */
+    private String instanceMethod() {
+        return "Instance Method";
+    }
+
+    public native String invokeInstanceMethod();
+
+    private static String staticMethod() {
+        return "Static Method";
+    }
+
+    public native String invokeStaticMethod();
 
 }
