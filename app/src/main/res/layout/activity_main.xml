@@ -29,6 +29,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/ch03"
-        app:layout_constraintLeft_toLeftOf="@+id/activity_main"
+        app:layout_constraintLeft_toRightOf="@+id/ch03_4"
         android:text="ch03_5"/>
+
+    <Button
+        android:id="@+id/ch03_6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/ch03"
+        app:layout_constraintLeft_toRightOf="@+id/ch03_5"
+        android:text="ch03_6"/>
+    <Button
+        android:id="@+id/ch03_7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/ch03"
+        app:layout_constraintLeft_toRightOf="@+id/ch03_6"
+        android:text="ch03_7"/>
 </android.support.constraint.ConstraintLayout>

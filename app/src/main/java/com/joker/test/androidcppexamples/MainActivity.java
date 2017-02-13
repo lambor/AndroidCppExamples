@@ -7,6 +7,8 @@ import android.view.View;
 
 import com.joker.test.androidcppexamples.ch03.Ch03_4Activity;
 import com.joker.test.androidcppexamples.ch03.Ch03_5Activity;
+import com.joker.test.androidcppexamples.ch03.Ch03_6Activity;
+import com.joker.test.androidcppexamples.ch03.Ch03_7Activity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -17,6 +19,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         findViewById(R.id.ch03_4).setOnClickListener(this);
         findViewById(R.id.ch03_5).setOnClickListener(this);
+        findViewById(R.id.ch03_6).setOnClickListener(this);
+        findViewById(R.id.ch03_7).setOnClickListener(this);
     }
 
 
@@ -40,6 +44,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.ch03_5:
                 Ch03_5Activity.start(this);
+                break;
+            case R.id.ch03_6:
+                Ch03_6Activity.start(this);
+                break;
+            case R.id.ch03_7:
+                Ch03_7Activity.start(this);
                 break;
         }
     }

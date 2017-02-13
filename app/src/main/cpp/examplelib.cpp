@@ -4,3 +4,5 @@
 
 #include "ch03_4.cpp"
 #include "ch03_5.cpp"
+#include "ch03_6.cpp"
+#include "ch03_7.cpp"

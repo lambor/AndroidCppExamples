@@ -17,6 +17,8 @@
         </activity>
         <activity android:name=".ch03.Ch03_4Activity" android:label="数据类型"/>
         <activity android:name=".ch03.Ch03_5Activity" android:label="异常处理"/>
+        <activity android:name=".ch03.Ch03_6Activity" android:label="局部和全局引用"/>
+        <activity android:name=".ch03.Ch03_7Activity" android:label="线程"/>
     </application>
 
 </manifest>

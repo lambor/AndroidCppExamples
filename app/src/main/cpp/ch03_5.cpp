@@ -24,7 +24,7 @@ Java_com_joker_test_androidcppexamples_ch03_Ch03_15_accessMethods(JNIEnv *env, j
     ex = env->ExceptionOccurred();
     if(0!=ex) {
         env->ExceptionClear();
-        LOGI(TAG,"null pointer exception occured.");
+        LOGI("null pointer exception occured.");
     }
 }
 
