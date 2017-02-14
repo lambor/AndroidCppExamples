@@ -32,6 +32,7 @@ Java_com_joker_test_androidcppexamples_ch03_Ch03_17_syncMethod_1JNI(JNIEnv *env,
     env->MonitorExit(instance);
 }
 
+
 JNIEXPORT void JNICALL
 Java_com_joker_test_androidcppexamples_ch03_Ch03_17_setJNI_1ENV(JNIEnv *env, jobject instance) {
     env->GetJavaVM(&g_jvm);
@@ -54,6 +55,7 @@ void *thread_func(void* arg)
     {
         LOGE("%s: DetachCurrentThread() failed", __FUNCTION__);
     }
+    pthread_exit(0);
 }
 
 JNIEXPORT void JNICALL
