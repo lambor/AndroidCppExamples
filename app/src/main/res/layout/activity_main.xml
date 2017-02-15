@@ -46,4 +46,21 @@
         app:layout_constraintTop_toBottomOf="@+id/ch03"
         app:layout_constraintLeft_toRightOf="@+id/ch03_6"
         android:text="ch03_7"/>
+
+    <TextView
+        android:id="@+id/ch04"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ch03"
+        app:layout_constraintLeft_toLeftOf="@+id/activity_main"
+        app:layout_constraintTop_toBottomOf="@+id/ch03_7" />
+
+    <Button
+        android:id="@+id/ch04_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/ch04"
+        app:layout_constraintLeft_toLeftOf="@+id/activity_main"
+        android:text="ch04_3"/>
+
 </android.support.constraint.ConstraintLayout>

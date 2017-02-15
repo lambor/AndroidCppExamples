@@ -55,6 +55,7 @@ void *thread_func(void* arg)
     {
         LOGE("%s: DetachCurrentThread() failed", __FUNCTION__);
     }
+    //!!!!!
     pthread_exit(0);
 }
 

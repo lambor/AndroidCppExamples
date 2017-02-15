@@ -21,6 +21,8 @@ add_library( # Sets the name of the library.
              src/main/cpp/native-lib.cpp )
 add_library(examplelib SHARED src/main/cpp/examplelib.cpp)
 
+add_library(unix SHARED src/main/cpp/unix_wrap.c)
+
 # Searches for a specified prebuilt library and stores the path as a
 # variable. Because system libraries are included in the search path by
 # default, you only need to specify the name of the public NDK library
@@ -47,3 +49,4 @@ target_link_libraries( # Specifies the target library.
 target_link_libraries(examplelib
                       android
                       log)
+

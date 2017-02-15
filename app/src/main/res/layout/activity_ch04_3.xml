@@ -7,10 +7,9 @@
     android:layout_height="match_parent"
     tools:context="com.joker.test.androidcppexamples.ch03.Ch03_4Activity">
 
-    <Button
-        android:id="@+id/startNativeThread"
+    <TextView
+        android:id="@+id/uid"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="启动native thread"/>
+        android:layout_height="wrap_content" />
 
 </android.support.constraint.ConstraintLayout>
