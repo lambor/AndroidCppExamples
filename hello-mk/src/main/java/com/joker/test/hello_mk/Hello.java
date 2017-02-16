@@ -6,7 +6,7 @@ package com.joker.test.hello_mk;
 
 public class Hello {
     static {
-        System.loadLibrary("hello-jni");
+        System.loadLibrary("hellomk");
     }
     public static native String stringFromJNI();
 }

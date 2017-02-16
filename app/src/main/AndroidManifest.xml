@@ -19,7 +19,8 @@
         <activity android:name=".ch03.Ch03_5Activity" android:label="异常处理"/>
         <activity android:name=".ch03.Ch03_6Activity" android:label="局部和全局引用"/>
         <activity android:name=".ch03.Ch03_7Activity" android:label="线程"/>
-        <activity android:name=".ch04.Ch04_3Activity" android:label="试用swig"/>
+        <activity android:name=".ch04.Ch04_3Activity" android:label="试用swig,使用cmake编译"/>
+        <activity android:name=".ch04.Ch04_3MKActivity" android:label="试用swig,使用ndk-build编译"/>
     </application>
 
 </manifest>

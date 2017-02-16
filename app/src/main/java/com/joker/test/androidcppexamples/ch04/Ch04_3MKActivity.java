@@ -9,17 +9,22 @@ import android.util.Log;
 import android.widget.TextView;
 
 import com.joker.test.androidcppexamples.R;
-import com.joker.test.hello_mk.Hello;
+import com.joker.test.hello_mk.*;
 
 /**
  * Created by lambor on 17-2-9.
  */
 
-public class Ch04_3Activity extends AppCompatActivity {
-    private static final String TAG = "ch03_5";
+/**
+ * build by ndk-build with Android.mk
+ */
+
+public class Ch04_3MKActivity extends AppCompatActivity {
+    private static final String TAG = "ch04_3MK";
 
     public static void start(Context context) {
-        context.startActivity(new Intent(context,Ch04_3Activity.class));
+        context.startActivity(new Intent(context,Ch04_3MKActivity.class));
+        Log.e(TAG, Hello.stringFromJNI());
     }
 
     private TextView mUId;
@@ -29,6 +34,6 @@ public class Ch04_3Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ch04_3);
         mUId = (TextView) findViewById(R.id.uid);
-        mUId.setText("uid: "+Unix.getuid());
+        mUId.setText("uid: "+ com.joker.test.hello_mk.Unix.getuid());
     }
 }

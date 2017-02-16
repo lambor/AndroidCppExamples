@@ -63,4 +63,12 @@
         app:layout_constraintLeft_toLeftOf="@+id/activity_main"
         android:text="ch04_3"/>
 
+    <Button
+        android:id="@+id/ch04_3mk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/ch04"
+        app:layout_constraintLeft_toRightOf="@+id/ch04_3"
+        android:text="ch03_7"/>
+
 </android.support.constraint.ConstraintLayout>

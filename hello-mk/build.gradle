@@ -20,6 +20,9 @@ android {
         }
     }
     externalNativeBuild {
+//        使用swig makefile时注意两点:
+//        1.LOCAL_CPP_EXTENSION += .cpp 不然会不编译 *.cpp
+//        2.生成的native JAVA class需要自己手动添加System.loadLibrary
         ndkBuild {
             path 'src/main/cpp/Android.mk'
 //            stl  "stlport_static"
