@@ -9,8 +9,31 @@
 package com.joker.test.hello_mk;
 
 public class UnixJNI {
-  static {
-    System.loadLibrary("hellomk");
-  }
   public final static native long getuid();
+  public final static native void counter_set(int jarg1);
+  public final static native int counter_get();
+  public final static native void inc_counter();
+  public final static native int MAX_WIDTH_get();
+  public final static native int MAX_HEIGHT_get();
+  public final static native int readOnly_get();
+  public final static native void readWrite_set(int jarg1);
+  public final static native int readWrite_get();
+  public final static native int ONE_get();
+  public final static native int TWO_get();
+  public final static native int THREE_get();
+  public final static native int FOUR_get();
+  public final static native int ONE_SAFE_get();
+  public final static native int TWO_SAFE_get();
+  public final static native int ONE_UNSAFE_get();
+  public final static native int TWO_UNSAFE_get();
+  public final static native int THREE_UNSAFE_get();
+  public final static native int FOUR_UNSAFE_get();
+  public final static native int ONE_JAVA_get();
+  public final static native int TWO_JAVA_get();
+  public final static native void Point_x_set(long jarg1, Point jarg1_, int jarg2);
+  public final static native int Point_x_get(long jarg1, Point jarg1_);
+  public final static native void Point_y_set(long jarg1, Point jarg1_, int jarg2);
+  public final static native int Point_y_get(long jarg1, Point jarg1_);
+  public final static native long new_Point();
+  public final static native void delete_Point(long jarg1);
 }

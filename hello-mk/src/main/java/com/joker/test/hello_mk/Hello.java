@@ -6,7 +6,12 @@ package com.joker.test.hello_mk;
 
 public class Hello {
     static {
-        System.loadLibrary("hellomk");
+        try {
+            System.loadLibrary("stlport_shared");
+            System.loadLibrary("hellomk");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     public static native String stringFromJNI();
 }

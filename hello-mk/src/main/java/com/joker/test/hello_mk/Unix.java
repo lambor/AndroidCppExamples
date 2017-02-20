@@ -8,9 +8,33 @@
 
 package com.joker.test.hello_mk;
 
-public class Unix {
+public class Unix implements UnixConstants {
   public static long getuid() {
     return UnixJNI.getuid();
+  }
+
+  public static void setCounter(int value) {
+    UnixJNI.counter_set(value);
+  }
+
+  public static int getCounter() {
+    return UnixJNI.counter_get();
+  }
+
+  public static void inc_counter() {
+    UnixJNI.inc_counter();
+  }
+
+  public static int getReadOnly() {
+    return UnixJNI.readOnly_get();
+  }
+
+  public static void setReadWrite(int value) {
+    UnixJNI.readWrite_set(value);
+  }
+
+  public static int getReadWrite() {
+    return UnixJNI.readWrite_get();
   }
 
 }

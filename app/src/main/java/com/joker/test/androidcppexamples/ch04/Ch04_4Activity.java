@@ -9,7 +9,7 @@ import android.util.Log;
 import android.widget.TextView;
 
 import com.joker.test.androidcppexamples.R;
-import com.joker.test.hello_mk.*;
+import com.joker.test.hello_mk.Hello;
 import com.joker.test.hello_mk.Unix;
 
 /**
@@ -20,11 +20,11 @@ import com.joker.test.hello_mk.Unix;
  * build by ndk-build with Android.mk
  */
 
-public class Ch04_3MKActivity extends AppCompatActivity {
+public class Ch04_4Activity extends AppCompatActivity {
     private static final String TAG = "ch04_3MK";
 
     public static void start(Context context) {
-        context.startActivity(new Intent(context,Ch04_3MKActivity.class));
+        context.startActivity(new Intent(context,Ch04_4Activity.class));
         Log.e(TAG, Hello.stringFromJNI());
     }
 
@@ -35,6 +35,10 @@ public class Ch04_3MKActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ch04_3);
         mUId = (TextView) findViewById(R.id.uid);
-        mUId.setText("uid: "+ com.joker.test.hello_mk.Unix.getuid());
+        mUId.setText("uid: "+ Unix.getuid());
+
+        Log.e(TAG,""+ Unix.getCounter());
+        Unix.inc_counter();
+        Log.e(TAG,""+Unix.getCounter());
     }
 }

@@ -212,6 +212,10 @@ static void SWIGUNUSED SWIG_JavaThrowException(JNIEnv *jenv, SWIG_JavaExceptionC
 
 
 #include <unistd.h>
+#include "counter.h"
+#include "immutable.h"
+#include "enum.h"
+#include "point.h"
 
 
 #ifdef __cplusplus
@@ -227,6 +231,315 @@ SWIGEXPORT jlong JNICALL Java_com_joker_test_hello_1mk_UnixJNI_getuid(JNIEnv *je
   result = (uid_t)getuid();
   jresult = (jlong)result; 
   return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_com_joker_test_hello_1mk_UnixJNI_counter_1set(JNIEnv *jenv, jclass jcls, jint jarg1) {
+  int arg1 ;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = (int)jarg1; 
+  counter = arg1;
+}
+
+
+SWIGEXPORT jint JNICALL Java_com_joker_test_hello_1mk_UnixJNI_counter_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  int result;
+  
+  (void)jenv;
+  (void)jcls;
+  result = (int)counter;
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_com_joker_test_hello_1mk_UnixJNI_inc_1counter(JNIEnv *jenv, jclass jcls) {
+  (void)jenv;
+  (void)jcls;
+  inc_counter();
+}
+
+
+SWIGEXPORT jint JNICALL Java_com_joker_test_hello_1mk_UnixJNI_MAX_1WIDTH_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  int result;
+  
+  (void)jenv;
+  (void)jcls;
+  result = (int)(640);
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_com_joker_test_hello_1mk_UnixJNI_MAX_1HEIGHT_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  int result;
+  
+  (void)jenv;
+  (void)jcls;
+  result = (int)(320);
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_com_joker_test_hello_1mk_UnixJNI_readOnly_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  int result;
+  
+  (void)jenv;
+  (void)jcls;
+  result = (int)readOnly;
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_com_joker_test_hello_1mk_UnixJNI_readWrite_1set(JNIEnv *jenv, jclass jcls, jint jarg1) {
+  int arg1 ;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = (int)jarg1; 
+  readWrite = arg1;
+}
+
+
+SWIGEXPORT jint JNICALL Java_com_joker_test_hello_1mk_UnixJNI_readWrite_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  int result;
+  
+  (void)jenv;
+  (void)jcls;
+  result = (int)readWrite;
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_com_joker_test_hello_1mk_UnixJNI_ONE_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  int result;
+  
+  (void)jenv;
+  (void)jcls;
+  result = (int)ONE;
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_com_joker_test_hello_1mk_UnixJNI_TWO_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  int result;
+  
+  (void)jenv;
+  (void)jcls;
+  result = (int)TWO;
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_com_joker_test_hello_1mk_UnixJNI_THREE_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  int result;
+  
+  (void)jenv;
+  (void)jcls;
+  result = (int)THREE;
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_com_joker_test_hello_1mk_UnixJNI_FOUR_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  int result;
+  
+  (void)jenv;
+  (void)jcls;
+  result = (int)FOUR;
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_com_joker_test_hello_1mk_UnixJNI_ONE_1SAFE_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  NumbersSafe result;
+  
+  (void)jenv;
+  (void)jcls;
+  result = (NumbersSafe)ONE_SAFE;
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_com_joker_test_hello_1mk_UnixJNI_TWO_1SAFE_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  NumbersSafe result;
+  
+  (void)jenv;
+  (void)jcls;
+  result = (NumbersSafe)TWO_SAFE;
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_com_joker_test_hello_1mk_UnixJNI_ONE_1UNSAFE_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  NumbersUnSafe result;
+  
+  (void)jenv;
+  (void)jcls;
+  result = (NumbersUnSafe)ONE_UNSAFE;
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_com_joker_test_hello_1mk_UnixJNI_TWO_1UNSAFE_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  NumbersUnSafe result;
+  
+  (void)jenv;
+  (void)jcls;
+  result = (NumbersUnSafe)TWO_UNSAFE;
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_com_joker_test_hello_1mk_UnixJNI_THREE_1UNSAFE_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  NumbersUnSafe result;
+  
+  (void)jenv;
+  (void)jcls;
+  result = (NumbersUnSafe)THREE_UNSAFE;
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_com_joker_test_hello_1mk_UnixJNI_FOUR_1UNSAFE_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  NumbersUnSafe result;
+  
+  (void)jenv;
+  (void)jcls;
+  result = (NumbersUnSafe)FOUR_UNSAFE;
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_com_joker_test_hello_1mk_UnixJNI_ONE_1JAVA_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  NumbersJava result;
+  
+  (void)jenv;
+  (void)jcls;
+  result = (NumbersJava)ONE_JAVA;
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_com_joker_test_hello_1mk_UnixJNI_TWO_1JAVA_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  NumbersJava result;
+  
+  (void)jenv;
+  (void)jcls;
+  result = (NumbersJava)TWO_JAVA;
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_com_joker_test_hello_1mk_UnixJNI_Point_1x_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+  Point *arg1 = (Point *) 0 ;
+  int arg2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(Point **)&jarg1; 
+  arg2 = (int)jarg2; 
+  if (arg1) (arg1)->x = arg2;
+}
+
+
+SWIGEXPORT jint JNICALL Java_com_joker_test_hello_1mk_UnixJNI_Point_1x_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jint jresult = 0 ;
+  Point *arg1 = (Point *) 0 ;
+  int result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(Point **)&jarg1; 
+  result = (int) ((arg1)->x);
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_com_joker_test_hello_1mk_UnixJNI_Point_1y_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+  Point *arg1 = (Point *) 0 ;
+  int arg2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(Point **)&jarg1; 
+  arg2 = (int)jarg2; 
+  if (arg1) (arg1)->y = arg2;
+}
+
+
+SWIGEXPORT jint JNICALL Java_com_joker_test_hello_1mk_UnixJNI_Point_1y_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jint jresult = 0 ;
+  Point *arg1 = (Point *) 0 ;
+  int result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(Point **)&jarg1; 
+  result = (int) ((arg1)->y);
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_com_joker_test_hello_1mk_UnixJNI_new_1Point(JNIEnv *jenv, jclass jcls) {
+  jlong jresult = 0 ;
+  Point *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  result = (Point *)new Point();
+  *(Point **)&jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_com_joker_test_hello_1mk_UnixJNI_delete_1Point(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+  Point *arg1 = (Point *) 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = *(Point **)&jarg1; 
+  delete arg1;
 }
 
 

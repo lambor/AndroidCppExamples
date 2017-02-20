@@ -3,7 +3,7 @@ LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
 
 LOCAL_MODULE := hellomk
-LOCAL_SRC_FILES += hello-jni.cpp
+LOCAL_SRC_FILES += hello-jni.cpp counter.cpp immutable.cpp
 LOCAL_LDLIBS += -llog
 
 ## important!!
