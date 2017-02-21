@@ -79,4 +79,12 @@
         app:layout_constraintLeft_toRightOf="@+id/ch04_3mk"
         android:text="ch04_4"/>
 
+    <Button
+        android:id="@+id/ch04_8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/ch04"
+        app:layout_constraintLeft_toRightOf="@+id/ch04_4"
+        android:text="ch04_8"/>
+
 </android.support.constraint.ConstraintLayout>

@@ -1,4 +1,4 @@
-%module Unix
+%module(directors="1") Unix
 
 %{
 #include <unistd.h>
@@ -6,10 +6,28 @@
 #include "immutable.h"
 #include "enum.h"
 #include "point.h"
+#include "argument.h"
+#include "class.h"
+
+class AsyncUidProvider
+{
+public:
+	AsyncUidProvider() {}
+
+	virtual ~AsyncUidProvider() {}
+
+	void get()
+	{
+		onUid(getuid());
+	}
+
+	virtual void onUid(uid_t uid)
+	{
+	}
+};
 %}
 
 typedef unsigned int uid_t;
-extern uid_t getuid(void);
 
 //全局变量
 extern int counter;
@@ -48,3 +66,62 @@ struct Point {
 	int x;
 	int y;
 };
+
+//指针 引用 和 值
+void drawByPointer(struct Point* p);
+void drawByReference(struct Point& p);
+void drawByValue(struct Point p);
+
+//默认参数
+void func(int a,int b,int c=3);
+
+//重载函数
+void func(double d);
+void func(int i);
+
+//类
+class A {
+public:
+    A();
+    A(int value);
+    ~A();
+
+    void print();
+
+    int value;
+private:
+    void reset();
+};
+
+//异常处理
+%exception getuid {
+	$action
+	if (!result) {
+		jclass clazz = jenv->FindClass("java/lang/NullPointerException");
+        jenv->ThrowNew(clazz,"out of memory.");
+        return $null;
+	}
+}
+extern uid_t getuid(void);
+
+//从原生代码调用java
+%feature("director") AsyncUidProvider;
+class AsyncUidProvider {
+public:
+	AsyncUidProvider();
+	virtual ~AsyncUidProvider();
+
+	void get();
+	virtual void onUid(uid_t uid) = 0;
+};
+
+%pragma(java) jniclasscode=%{
+  static {
+    try {
+        System.loadLibrary("hellomk");
+    } catch (UnsatisfiedLinkError e) {
+      System.err.println("Native code library failed to load. \n" + e);
+      System.exit(1);
+    }
+  }
+%}

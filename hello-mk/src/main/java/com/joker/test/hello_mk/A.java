@@ -8,16 +8,16 @@
 
 package com.joker.test.hello_mk;
 
-public class Point {
+public class A {
   private transient long swigCPtr;
   protected transient boolean swigCMemOwn;
 
-  protected Point(long cPtr, boolean cMemoryOwn) {
+  protected A(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(Point obj) {
+  protected static long getCPtr(A obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 
@@ -29,30 +29,30 @@ public class Point {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        UnixJNI.delete_Point(swigCPtr);
+        UnixJNI.delete_A(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
-  public void setX(int value) {
-    UnixJNI.Point_x_set(swigCPtr, this, value);
+  public A() {
+    this(UnixJNI.new_A__SWIG_0(), true);
   }
 
-  public int getX() {
-    return UnixJNI.Point_x_get(swigCPtr, this);
+  public A(int value) {
+    this(UnixJNI.new_A__SWIG_1(value), true);
   }
 
-  public void setY(int value) {
-    UnixJNI.Point_y_set(swigCPtr, this, value);
+  public void print() {
+    UnixJNI.A_print(swigCPtr, this);
   }
 
-  public int getY() {
-    return UnixJNI.Point_y_get(swigCPtr, this);
+  public void setValue(int value) {
+    UnixJNI.A_value_set(swigCPtr, this, value);
   }
 
-  public Point() {
-    this(UnixJNI.new_Point(), true);
+  public int getValue() {
+    return UnixJNI.A_value_get(swigCPtr, this);
   }
 
 }
