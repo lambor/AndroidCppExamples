@@ -23,6 +23,7 @@
         <activity android:name=".ch04.Ch04_3MKActivity" android:label="试用swig,使用ndk-build编译"/>
         <activity android:name=".ch04.Ch04_4Activity" android:label="封装C语言代码"/>
         <activity android:name=".ch04.Ch04_8Activity" android:label="从原生代码中调用JAVA"/>
+        <activity android:name=".ch07.Ch07Activity" android:label="ch07 Threads"/>
     </application>
 
 </manifest>

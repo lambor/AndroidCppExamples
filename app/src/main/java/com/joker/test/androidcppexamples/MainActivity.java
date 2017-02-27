@@ -13,6 +13,7 @@ import com.joker.test.androidcppexamples.ch04.Ch04_3Activity;
 import com.joker.test.androidcppexamples.ch04.Ch04_3MKActivity;
 import com.joker.test.androidcppexamples.ch04.Ch04_4Activity;
 import com.joker.test.androidcppexamples.ch04.Ch04_8Activity;
+import com.joker.test.androidcppexamples.ch07.Ch07Activity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -30,6 +31,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.ch04_3mk).setOnClickListener(this);
         findViewById(R.id.ch04_4).setOnClickListener(this);
         findViewById(R.id.ch04_8).setOnClickListener(this);
+
+        findViewById(R.id.ch07_2).setOnClickListener(this);
+        findViewById(R.id.ch07_3).setOnClickListener(this);
     }
 
 
@@ -42,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     // Used to load the 'native-lib' library on application startup.
     static {
+        System.loadLibrary("stlport_shared");
         System.loadLibrary("native-lib");
     }
 
@@ -71,6 +76,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.ch04_8:
                 Ch04_8Activity.start(this);
+                break;
+            case R.id.ch07_2:
+                Ch07Activity.start(this,false);
+                break;
+            case R.id.ch07_3:
+                Ch07Activity.start(this,true);
                 break;
         }
     }
