@@ -20,15 +20,31 @@ import org.w3c.dom.Text;
 
 public class Ch07Activity extends AppCompatActivity {
 
-    private static final String EXTRA_NATIVETHREAD = "native_thread";
+    private static final String EXTRA_TYPE = "type";
 
-    public static void start(Context context,boolean useNativeThread) {
+    private static final int TYPE_JAVA = 0;
+    private static final int TYPE_NATIVE = 1;
+    private static final int TYPE_MUTEX = 2;
+
+    public static void startNative(Context context) {
+        start(context,TYPE_NATIVE);
+    }
+
+    public static void startJava(Context context) {
+        start(context,TYPE_JAVA);
+    }
+
+    public static void startMutex(Context context) {
+        start(context,TYPE_MUTEX);
+    }
+
+    private static void start(Context context,int type) {
         Intent intent = new Intent(context,Ch07Activity.class);
-        intent.putExtra(EXTRA_NATIVETHREAD,useNativeThread);
+        intent.putExtra(EXTRA_TYPE,type);
         context.startActivity(intent);
     }
 
-    boolean useNativeThread = false;
+    private int type;
     private EditText threadsEdit;
     private EditText iterationsEdit;
     private Button startButton;
@@ -41,7 +57,7 @@ public class Ch07Activity extends AppCompatActivity {
 
         nativeInit();
 
-        useNativeThread = getIntent().getBooleanExtra(EXTRA_NATIVETHREAD,false);
+        type = getIntent().getIntExtra(EXTRA_TYPE,0);
         threadsEdit = (EditText) findViewById(R.id.threads_edit);
         iterationsEdit = (EditText) findViewById(R.id.iterations_edit);
         startButton = (Button) findViewById(R.id.start_button);
@@ -96,10 +112,12 @@ public class Ch07Activity extends AppCompatActivity {
     }
 
     private void startThreads(int threads, final int iterations) {
-        if(useNativeThread) {
+        if(type == TYPE_NATIVE) {
             posixThread(threads,iterations);
-        } else {
+        } else if(type == TYPE_JAVA) {
             javaThreads(threads, iterations);
+        } else if(type == TYPE_MUTEX) {
+            mutexThread(threads,iterations);
         }
     }
 
@@ -116,4 +134,6 @@ public class Ch07Activity extends AppCompatActivity {
     }
 
     private native void posixThread(int threads, int iterations);
+
+    private native void mutexThread(int threads, int iteration);
 }

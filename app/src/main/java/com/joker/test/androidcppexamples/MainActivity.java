@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         findViewById(R.id.ch07_2).setOnClickListener(this);
         findViewById(R.id.ch07_3).setOnClickListener(this);
+        findViewById(R.id.ch07_5).setOnClickListener(this);
     }
 
 
@@ -78,10 +79,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Ch04_8Activity.start(this);
                 break;
             case R.id.ch07_2:
-                Ch07Activity.start(this,false);
+                Ch07Activity.startJava(this);
                 break;
             case R.id.ch07_3:
-                Ch07Activity.start(this,true);
+                Ch07Activity.startNative(this);
+                break;
+            case R.id.ch07_5:
+                Ch07Activity.startMutex(this);
                 break;
         }
     }
