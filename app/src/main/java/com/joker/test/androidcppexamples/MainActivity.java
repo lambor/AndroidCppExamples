@@ -14,6 +14,7 @@ import com.joker.test.androidcppexamples.ch04.Ch04_3MKActivity;
 import com.joker.test.androidcppexamples.ch04.Ch04_4Activity;
 import com.joker.test.androidcppexamples.ch04.Ch04_8Activity;
 import com.joker.test.androidcppexamples.ch07.Ch07Activity;
+import com.joker.test.androidcppexamples.ch08.EchoServerActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -35,6 +36,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.ch07_2).setOnClickListener(this);
         findViewById(R.id.ch07_3).setOnClickListener(this);
         findViewById(R.id.ch07_5).setOnClickListener(this);
+
+        findViewById(R.id.ch08_2).setOnClickListener(this);
     }
 
 
@@ -86,6 +89,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.ch07_5:
                 Ch07Activity.startMutex(this);
+                break;
+            case R.id.ch08_2:
+                EchoServerActivity.start(this);
                 break;
         }
     }

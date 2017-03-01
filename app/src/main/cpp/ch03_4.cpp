@@ -6,6 +6,7 @@
 
 #define TAG "ch03_4"
 
+
 extern "C" {
 jstring
 Java_com_joker_test_androidcppexamples_ch03_Ch03_14_getHelloStr(

@@ -7,3 +7,4 @@
 #include "ch03_6.cpp"
 #include "ch03_7.cpp"
 #include "ch07.cpp"
+#include "ch08_echo.cpp"
