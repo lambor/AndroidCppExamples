@@ -27,6 +27,7 @@
         <activity android:name=".ch04.Ch04_8Activity" android:label="从原生代码中调用JAVA"/>
         <activity android:name=".ch07.Ch07Activity" android:label="ch07 Threads"/>
         <activity android:name=".ch08.EchoServerActivity" android:label="TCP server"/>
+        <activity android:name=".ch08.EchoClientActivity" android:label="TCP client"/>
     </application>
 
 </manifest>

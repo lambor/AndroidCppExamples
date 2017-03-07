@@ -2,6 +2,9 @@ package com.joker.test.androidcppexamples.ch08;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.view.View;
 
 import com.joker.test.androidcppexamples.R;
 
@@ -50,5 +53,16 @@ public class EchoServerActivity extends AbstractEchoActivity {
 
             logMessage("Server terminated.");
         }
+    }
+
+    @Override
+    protected void initOnCreate(@Nullable Bundle savedInstanceState) {
+        super.initOnCreate(savedInstanceState);
+        findViewById(R.id.start_client).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EchoClientActivity.start(EchoServerActivity.this);
+            }
+        });
     }
 }

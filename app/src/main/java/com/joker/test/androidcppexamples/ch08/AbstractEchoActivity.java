@@ -39,6 +39,12 @@ public abstract class AbstractEchoActivity extends AppCompatActivity implements 
         logView = (TextView) findViewById(R.id.log_view);
 
         startButton.setOnClickListener(this);
+
+        initOnCreate(savedInstanceState);
+    }
+
+    protected void initOnCreate(@Nullable Bundle savedInstanceState) {
+
     }
 
     @Override

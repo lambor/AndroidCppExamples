@@ -213,4 +213,84 @@ Java_com_joker_test_androidcppexamples_ch08_EchoServerActivity_nativeStartTcpSer
         close(serverSocket);
     }
 }
+
+/**
+ * Echo Client
+ */
+static void ConnectToAddress(JNIEnv *env, jobject obj, int sd, const char *ip, unsigned short port) {
+    LogMessage(env,obj,"Connecting to %s:%uh...",ip,port);
+    struct sockaddr_in address;
+    memset(&address,0,sizeof(address));
+    address.sin_family = PF_INET;
+
+    if(inet_aton(ip,&(address.sin_addr)) == 0) {
+        ThrowErrnoException(env,"java/io/IOException",errno);
+    }
+    else
+    {
+        address.sin_port = htons(port);
+        if(connect(sd,(const sockaddr *)&address,sizeof(address)) == -1) {
+            ThrowErrnoException(env,"java/io/IOException",errno);
+        }
+        else
+        {
+            LogMessage(env,obj,"Connected.");
+        }
+    }
+}
+
+JNIEXPORT void JNICALL
+Java_com_joker_test_androidcppexamples_ch08_EchoClientActivity_nativeStartTcpClient(JNIEnv *env,
+                                                                                    jobject instance,
+                                                                                    jstring ip_,
+                                                                                    jint port,
+                                                                                    jstring message_) {
+    int clientSocket = NewTcpSocket(env,instance);
+
+    /**
+     * check NewTcpSocket result
+     */
+    if(env->ExceptionOccurred() == NULL) {
+        const char *ip = env->GetStringUTFChars(ip_, 0);
+
+        if(ip == NULL)
+            goto exit;
+        ConnectToAddress(env, instance, clientSocket, ip, (unsigned short) port);
+
+        env->ReleaseStringUTFChars(ip_,ip);
+
+        /**
+         * check ConnectToAddress result
+         */
+        if(env->ExceptionOccurred() != NULL)
+            goto exit;
+
+        const char *message = env->GetStringUTFChars(message_, 0);
+
+        if(message == NULL)
+            goto exit;
+        jsize messageSize = env->GetStringUTFLength(message_);
+        SendToSocket(env,instance,clientSocket,message,messageSize);
+
+        env->ReleaseStringUTFChars(message_,message);
+
+        /**
+         * check SendToSocket result
+         */
+        if(env->ExceptionOccurred() != NULL)
+            goto exit;
+
+        char buffer[MAX_BUFFER_SIZE];
+        ReceiveFromSocket(env,instance,clientSocket,buffer,MAX_BUFFER_SIZE);
+
+    }
+
+    exit:
+        if(clientSocket > -1) {
+            close(clientSocket);
+        }
+
+}
+
+
 }

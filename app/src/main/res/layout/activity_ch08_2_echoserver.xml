@@ -24,6 +24,12 @@
             android:layout_height="wrap_content"/>
     </LinearLayout>
 
+    <Button
+        android:id="@+id/start_client"
+        android:text="Start_Client"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
     <ScrollView
         android:id="@+id/log_scroll"
         android:layout_width="match_parent"

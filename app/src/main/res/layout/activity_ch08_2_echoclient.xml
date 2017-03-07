@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/ip_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="ip">
+        <requestFocus/>
+    </EditText>
+
+    <EditText
+        android:id="@+id/port_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="port"
+        android:inputType="number"/>
+
+    <EditText
+        android:id="@+id/message_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="message"/>
+
+    <Button
+        android:id="@+id/start_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start Threads"/>
+
+    <ScrollView
+        android:id="@+id/log_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/log_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </ScrollView>
+</LinearLayout>
