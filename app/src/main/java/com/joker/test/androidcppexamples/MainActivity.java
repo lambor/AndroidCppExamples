@@ -2,7 +2,6 @@ package com.joker.test.androidcppexamples;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import com.joker.test.androidcppexamples.ch03.Ch03_4Activity;
@@ -14,7 +13,8 @@ import com.joker.test.androidcppexamples.ch04.Ch04_3MKActivity;
 import com.joker.test.androidcppexamples.ch04.Ch04_4Activity;
 import com.joker.test.androidcppexamples.ch04.Ch04_8Activity;
 import com.joker.test.androidcppexamples.ch07.Ch07Activity;
-import com.joker.test.androidcppexamples.ch08.EchoServerActivity;
+import com.joker.test.androidcppexamples.ch08.EchoTcpServerActivity;
+import com.joker.test.androidcppexamples.ch09.EchoUdpServerActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -38,6 +38,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.ch07_5).setOnClickListener(this);
 
         findViewById(R.id.ch08_2).setOnClickListener(this);
+
+        findViewById(R.id.ch09_2).setOnClickListener(this);
     }
 
 
@@ -91,7 +93,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Ch07Activity.startMutex(this);
                 break;
             case R.id.ch08_2:
-                EchoServerActivity.start(this);
+                EchoTcpServerActivity.start(this);
+                break;
+            case R.id.ch09_2:
+                EchoUdpServerActivity.start(this);
                 break;
         }
     }

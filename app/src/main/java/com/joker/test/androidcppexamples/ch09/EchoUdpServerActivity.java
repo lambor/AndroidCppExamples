@@ -1,4 +1,4 @@
-package com.joker.test.androidcppexamples.ch08;
+package com.joker.test.androidcppexamples.ch09;
 
 import android.content.Context;
 import android.content.Intent;
@@ -7,18 +7,19 @@ import android.support.annotation.Nullable;
 import android.view.View;
 
 import com.joker.test.androidcppexamples.R;
+import com.joker.test.androidcppexamples.ch08.AbstractEchoActivity;
 
 /**
  * Created by lambor on 17-3-1.
  */
 
-public class EchoServerActivity extends AbstractEchoActivity {
+public class EchoUdpServerActivity extends AbstractEchoActivity {
 
     public static void start(Context context) {
-        context.startActivity(new Intent(context,EchoServerActivity.class));
+        context.startActivity(new Intent(context,EchoUdpServerActivity.class));
     }
 
-    public EchoServerActivity() {
+    public EchoUdpServerActivity() {
         super(R.layout.activity_ch08_2_echoserver);
     }
 
@@ -31,7 +32,7 @@ public class EchoServerActivity extends AbstractEchoActivity {
         }
     }
 
-    private native void nativeStartTcpServer(int port) throws Exception;
+    private native void nativeStartUdpServer(int port) throws Exception;
 
     private class ServerTask extends AbstractEchoTask {
 
@@ -46,7 +47,7 @@ public class EchoServerActivity extends AbstractEchoActivity {
             logMessage("Starting server.");
 
             try {
-                nativeStartTcpServer(port);
+                nativeStartUdpServer(port);
             } catch (Exception e) {
                 logMessage(e.getMessage());
             }
@@ -61,7 +62,7 @@ public class EchoServerActivity extends AbstractEchoActivity {
         findViewById(R.id.start_client).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EchoClientActivity.start(EchoServerActivity.this);
+                EchoUdpClientActivity.start(EchoUdpServerActivity.this);
             }
         });
     }

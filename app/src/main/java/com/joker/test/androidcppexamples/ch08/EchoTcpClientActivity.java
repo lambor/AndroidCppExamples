@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
 
 import com.joker.test.androidcppexamples.R;
@@ -13,16 +12,16 @@ import com.joker.test.androidcppexamples.R;
  * Created by lambor on 17-3-6.
  */
 
-public class EchoClientActivity extends AbstractEchoActivity {
+public class EchoTcpClientActivity extends AbstractEchoActivity {
 
     public static void start(Context context) {
-        context.startActivity(new Intent(context,EchoClientActivity.class));
+        context.startActivity(new Intent(context,EchoTcpClientActivity.class));
     }
 
     private EditText ipEdit;
     private EditText messageEdit;
 
-    public EchoClientActivity() {
+    public EchoTcpClientActivity() {
         super(R.layout.activity_ch08_2_echoclient);
     }
 
